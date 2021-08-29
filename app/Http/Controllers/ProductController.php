@@ -66,7 +66,7 @@ class ProductController extends Controller
         $selected_tags = $request->has('tags') ? $request->tags : [];
 
         $query = $this->__getQuery($request);
-        $products = $query->paginate(10);
+        $products = $query->orderByDesc('id')->paginate(10);
 
         $tags = Tag::pluck('name', 'id')->toArray();
         $categories = Category::pluck('name', 'id')->toArray();
@@ -94,7 +94,7 @@ class ProductController extends Controller
         $selected_tags = $request->has('tags') ? $request->tags : [];
 
         $query = $this->__getQuery($request);
-        $products = $query->paginate(20);
+        $products = $query->orderByDesc('id')->paginate(20);
 
         $tags = Tag::pluck('name', 'id')->toArray();
         $categories = Category::pluck('name', 'id')->toArray();
