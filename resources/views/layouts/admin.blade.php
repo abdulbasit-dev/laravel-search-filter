@@ -1,224 +1,122 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- CoreUI CSS -->
-    <link rel="stylesheet" href="{{asset('css/coreui.min.css')}}"
-          crossorigin="anonymous">
-
-    <title>CoreUI</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{{asset("plugins/fontawesome-free/css/all.min.css")}}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet"
+    href="{{asset("plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css")}}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{{asset("plugins/icheck-bootstrap/icheck-bootstrap.min.css")}}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{{asset("plugins/jqvmap/jqvmap.min.css")}}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{{asset("dist/css/adminlte.min.css")}}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet"
+    href="{{asset("plugins/overlayScrollbars/css/OverlayScrollbars.min.css")}}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{{asset("plugins/daterangepicker/daterangepicker.css")}}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{{asset("plugins/summernote/summernote-bs4.min.css")}}">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset("plugins/datatables-bs4/css/dataTables.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/datatables-responsive/css/responsive.bootstrap4.min.css")}}">
+    <link rel="stylesheet" href="{{asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css")}}">
 </head>
-<body class="c-app">
-<div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-    <div class="c-sidebar-brand d-lg-down-none">
-        <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#full"></use>
-        </svg>
-        <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
-            <use xlink:href="assets/brand/coreui.svg#signet"></use>
-        </svg>
-    </div>
-    <ul class="c-sidebar-nav">
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="index.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                </svg>
-                Dashboard<span class="badge badge-info">NEW</span></a></li>
-        <li class="c-sidebar-nav-title">Theme</li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="colors.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-                </svg>
-                Colors</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="typography.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-                </svg>
-                Typography</a></li>
-        <li class="c-sidebar-nav-title">Components</li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a
-                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-                </svg>
-                Base</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/breadcrumb.html"><span
-                            class="c-sidebar-nav-icon"></span> Breadcrumb</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/cards.html"><span
-                            class="c-sidebar-nav-icon"></span> Cards</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/carousel.html"><span
-                            class="c-sidebar-nav-icon"></span> Carousel</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/collapse.html"><span
-                            class="c-sidebar-nav-icon"></span> Collapse</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="base/forms.html"><span
-                            class="c-sidebar-nav-icon"></span> Forms</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/jumbotron.html"><span
-                            class="c-sidebar-nav-icon"></span> Jumbotron</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/list-group.html"><span
-                            class="c-sidebar-nav-icon"></span> List group</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/navs.html"><span
-                            class="c-sidebar-nav-icon"></span> Navs</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/pagination.html"><span
-                            class="c-sidebar-nav-icon"></span> Pagination</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/popovers.html"><span
-                            class="c-sidebar-nav-icon"></span> Popovers</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/progress.html"><span
-                            class="c-sidebar-nav-icon"></span> Progress</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/scrollspy.html"><span
-                            class="c-sidebar-nav-icon"></span> Scrollspy</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/switches.html"><span
-                            class="c-sidebar-nav-icon"></span> Switches</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/tables.html"><span
-                            class="c-sidebar-nav-icon"></span> Tables</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/tabs.html"><span
-                            class="c-sidebar-nav-icon"></span> Tabs</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="base/tooltips.html"><span
-                            class="c-sidebar-nav-icon"></span> Tooltips</a></li>
-            </ul>
-        </li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a
-                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cursor"></use>
-                </svg>
-                Buttons</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="buttons/buttons.html"><span
-                            class="c-sidebar-nav-icon"></span> Buttons</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="buttons/button-group.html"><span
-                            class="c-sidebar-nav-icon"></span> Buttons Group</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="buttons/dropdowns.html"><span
-                            class="c-sidebar-nav-icon"></span> Dropdowns</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="buttons/brand-buttons.html"><span
-                            class="c-sidebar-nav-icon"></span> Brand Buttons</a></li>
-            </ul>
-        </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="charts.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-                </svg>
-                Charts</a></li>
-        <li class="c-sidebar-nav-dropdown"><a class="c-sidebar-nav-dropdown-toggle" href="#">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-                </svg>
-                Icons</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="icons/coreui-icons-free.html"> CoreUI
-                        Icons<span class="badge badge-success">Free</span></a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="icons/coreui-icons-brand.html"> CoreUI Icons
-                        - Brand</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="icons/coreui-icons-flag.html"> CoreUI Icons
-                        - Flag</a></li>
-            </ul>
-        </li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a
-                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-                </svg>
-                Notifications</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="notifications/alerts.html"><span
-                            class="c-sidebar-nav-icon"></span> Alerts</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="notifications/badge.html"><span
-                            class="c-sidebar-nav-icon"></span> Badge</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link"
-                                                  href="notifications/modals.html"><span
-                            class="c-sidebar-nav-icon"></span> Modals</a></li>
-            </ul>
-        </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="widgets.html">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
-                </svg>
-                Widgets<span class="badge badge-info">NEW</span></a></li>
-        <li class="c-sidebar-nav-divider"></li>
-        <li class="c-sidebar-nav-title">Extras</li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a
-                class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-                </svg>
-                Pages</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="login.html"
-                                                  target="_top">
-                        <svg class="c-sidebar-nav-icon">
-                            <use
-                                xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                        </svg>
-                        Login</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="register.html"
-                                                  target="_top">
-                        <svg class="c-sidebar-nav-icon">
-                            <use
-                                xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                        </svg>
-                        Register</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="404.html"
-                                                  target="_top">
-                        <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
-                        </svg>
-                        Error 404</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="500.html"
-                                                  target="_top">
-                        <svg class="c-sidebar-nav-icon">
-                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
-                        </svg>
-                        Error 500</a></li>
-            </ul>
-        </li>
-        <li class="c-sidebar-nav-item mt-auto"><a
-                class="c-sidebar-nav-link c-sidebar-nav-link-success" href="https://coreui.io"
-                target="_top">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cloud-download"></use>
-                </svg>
-                Download CoreUI</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link c-sidebar-nav-link-danger"
-                                          href="https://coreui.io/pro/" target="_top">
-                <svg class="c-sidebar-nav-icon">
-                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
-                </svg>
-                Try CoreUI<strong>PRO</strong></a></li>
-    </ul>
-    <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
-            data-class="c-sidebar-minimized"></button>
-</div>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+  <div class="wrapper">
+
+    <!-- Preloader -->
+{{--    <div class="preloader flex-column justify-content-center align-items-center">--}}
+{{--      <img class="animation__shake" src="{{asset("dist/img/AdminLTELogo.png")}}" alt="AdminLTELogo"--}}
+{{--        height="60" width="60">--}}
+{{--    </div>--}}
+
+    <!-- Navbar -->
+    @include('partials.nav')
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="{{asset("dist/img/AdminLTELogo.png")}}" alt="AdminLTE Logo"
+          class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
+
+      <!-- Sidebar -->
+      @include('partials.sidebar')
+      <!-- /.sidebar -->
+    </aside>
 
 
-<!-- Optional JavaScript -->
-<!-- Popper.js first, then CoreUI JS -->
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/@coreui/coreui/dist/js/coreui.min.js"></script>
+
+    @yield('content')
+
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery -->
+  <script src="{{asset("plugins/jquery/jquery.min.js")}}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{{asset("plugins/jquery-ui/jquery-ui.min.js")}}"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button)
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="{{asset("plugins/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+  <!-- ChartJS -->
+  <script src="{{asset("plugins/chart.js/Chart.min.js")}}"></script>
+  <!-- Sparkline -->
+  <script src="{{asset("plugins/sparklines/sparkline.js")}}"></script>
+  <!-- JQVMap -->
+  <script src="{{asset("plugins/jqvmap/jquery.vmap.min.js")}}"></script>
+  <script src="{{asset("plugins/jqvmap/maps/jquery.vmap.usa.js")}}"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="{{asset("plugins/jquery-knob/jquery.knob.min.js")}}"></script>
+  <!-- daterangepicker -->
+  <script src="{{asset("plugins/moment/moment.min.js")}}"></script>
+  <script src="{{asset("plugins/daterangepicker/daterangepicker.js")}}"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="{{asset("plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js")}}">
+  </script>
+  <!-- Summernote -->
+  <script src="{{asset("plugins/summernote/summernote-bs4.min.js")}}"></script>
+  <!-- overlayScrollbars -->
+  <script src="{{asset("plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js")}}"></script>
+
+  <!-- DataTables  & Plugins -->
+  <script src="{{ asset("plugins/datatables/jquery.dataTables.min.js")}}"</script>
+  <script src="{{ asset("plugins/datatables-bs4/js/dataTables.bootstrap4.min.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-responsive/js/dataTables.responsive.min.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-responsive/js/responsive.bootstrap4.min.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-buttons/js/dataTables.buttons.min.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-buttons/js/buttons.bootstrap4.min.js")}}"></script>
+  <script src="{{ asset("plugins/jszip/jszip.min.js")}}"></script>
+  <script src="{{ asset("plugins/pdfmake/pdfmake.min.js")}}"></script>
+  <script src="{{ asset("plugins/pdfmake/vfs_fonts.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-buttons/js/buttons.html5.min.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-buttons/js/buttons.print.min.js")}}"></script>
+  <script src="{{ asset("plugins/datatables-buttons/js/buttons.colVis.min.js")}}"></script>
+
+  <!-- AdminLTE App -->
+  <script src="{{asset("dist/js/adminlte.js")}}"></script>
+
+@stack('scripts')
 </body>
 </html>

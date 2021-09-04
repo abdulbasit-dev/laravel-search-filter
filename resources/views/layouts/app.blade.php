@@ -23,7 +23,7 @@
 
 <body>
 <div id="app">
-        @include('partials.navbar')
+{{--        @include('partials.navbar')--}}
     <main class="container py-4">
         @include('partials.flash')
         @yield('content')

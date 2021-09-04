@@ -5,6 +5,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +27,9 @@ Route::resource('/products', ProductController::class);
 
 
 
-Route::group(['prefix'=>'admin'],function (){
-    Route::get('/',function (){
-        return view('admin.index');
-    });
+Route::group(['prefix'=>'admin','as'=>'admin.'],function (){
+    Route::get('/', [DashboardController::class, 'index']);
+    Route::resource('products',AdminProductController::class);
 });
 
 Auth::routes();
