@@ -1,7 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -26,6 +24,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
+
+
                         <div class="card">
                             <div class="card-header">
                                 <h3 class="card-title">DataTable with default features</h3>
@@ -474,29 +474,29 @@
         </section>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
-    <!-- ./wrapper -->
-
-
-    @push('scripts')
-        <script>
-            $(function () {
-                $("#example1").DataTable({
-                    "responsive": true, "lengthChange": false, "autoWidth": false,
-                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                $('#example2').DataTable({
-                    "paging": true,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": false,
-                    "responsive": true,
-                });
-            });
-        </script>
-    @endpush
 
 @endsection
+
+
+@push('scripts')
+<!-- Page specific script -->
+<script>
+    $(function () {
+        $("#example1").DataTable({
+            "responsive": true, "lengthChange": false, "autoWidth": false,
+            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+    });
+</script>
+@endpush
+
+
